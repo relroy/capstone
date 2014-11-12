@@ -11,7 +11,68 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141106032547) do
+ActiveRecord::Schema.define(version: 20141111200500) do
+
+  create_table "carted_products", force: true do |t|
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.integer  "size_id"
+    t.integer  "flavor_id"
+    t.integer  "option_id"
+    t.integer  "container_id"
+    t.integer  "ic_flavor_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "containers", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flavors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ic_flavors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "options", force: true do |t|
+    t.string   "name"
+    t.decimal  "price",      precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "orders", force: true do |t|
+    t.integer  "user_id"
+    t.decimal  "total",      precision: 5, scale: 2
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.decimal  "price",      precision: 7, scale: 2
+    t.string   "photo"
+  end
+
+  create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
