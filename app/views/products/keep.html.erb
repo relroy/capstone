@@ -1,0 +1,8 @@
+<% if user_signed_in? && current_user.admin? %>
+
+             <p><a><%= link_to 'EDIT', edit_product_path(product.id) %>
+              <a data-confirm="Are you sure?" data-method="delete" href="/products/<%= product.id %>" rel="nofollow"><button type="button" class="btn btn-danger">Delete</button></a>       
+
+              <% end %>
+
+flash[:success] = "Added to cart."

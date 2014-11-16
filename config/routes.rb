@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root 'products#index'
   resources :products
+  resources :carted_products
+  resources :orders
+  resources :containers
+  resources :flavors
+  resources :ic_flavors
+  resources :options
+  resources :sizes
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
