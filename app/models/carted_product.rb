@@ -6,7 +6,17 @@ class CartedProduct < ActiveRecord::Base
   has_many :options
   has_many :flavors
   has_many :sizes
+
+  
+
+
+
+
+
+
+
+
+
+
+  
 end
-def price
-    return (quantity * product.price)  
-  end
