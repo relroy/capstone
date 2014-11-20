@@ -7,14 +7,14 @@ def create
     else
       @order = Order.create(:status => "cart", :user_id => current_user.id)
     end
-    CartedProduct.create(carted_product_params.merge({:order_id => @order.id}))
+    @carted_product = CartedProduct.create(carted_product_params.merge({:order_id => @order.id}))
     
-    redirect_to "/carted_products"
+    redirect_to @carted_product
   end
   def index
 
     @order = Order.find_by(:user_id => current_user.id, :status => "cart")
-    @carted_products = CartedProduct.all
+    
     @carted_products = @order.carted_products
     @products = Product.all
     product_id = params[:id] 
@@ -22,7 +22,19 @@ def create
 
   end
   
+  def show
+    @order = Order.find_by(:user_id => current_user.id, :status => "cart")
+    @carted_products = @order.carted_products
 
+    @carted_product = CartedProduct.find_by(id: params[:id])
+    @available_flavors = Flavor.all
+  end
+
+  def update
+    @carted_product = CartedProduct.find_by(id: params[:id])
+    @carted_product.update(:flavor_id => params[:flavor_id])
+    redirect_to carted_products_path
+  end
 
 
   private

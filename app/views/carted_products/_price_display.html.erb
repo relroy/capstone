@@ -1,0 +1,29 @@
+<div class = "row">
+  <div class="col-md-3">
+    <div class = 'temptotal'>
+      <h1>Your Order:</h1><br>
+        <table class= "table">
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+          </tr> 
+          <% @sub_total = 0 %>
+          <% @carted_products.each do |carted_product| %>
+          <tr>
+            <td><%= carted_product.product.name %><br><%= carted_product.flavor_name %></td><br>
+            <td><%= carted_product.quantity %></td>
+            <td>$<%= carted_product.product.price * carted_product.quantity %></td>
+            <% @sub_total +=  carted_product.product.price * carted_product.quantity %>
+          </tr>
+          <% end %>
+            <th>Your Sub Total:</th>
+            <td>$<%= @order.sub_total %><br></td>
+            <th>Sales Tax</th>
+            <td>$<%= @order.sales_tax %><br></td>
+        </table>
+            <%= form_for @order do |f| %>
+              <%= f.submit "Complete Purchase" %>
+            <% end %>            
+  </div>
+</div>
