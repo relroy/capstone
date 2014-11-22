@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112031157) do
+ActiveRecord::Schema.define(version: 20141122220603) do
 
   create_table "carted_products", force: true do |t|
     t.integer  "order_id"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 20141112031157) do
     t.integer  "quantity"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "syrup_flavor_id"
+    t.integer  "frostbite_flavor_id"
+    t.integer  "frozen_latte_flavor_id"
+    t.integer  "smoothie_flavor_id"
   end
 
   create_table "containers", force: true do |t|
@@ -34,6 +38,18 @@ ActiveRecord::Schema.define(version: 20141112031157) do
   end
 
   create_table "flavors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "frostbite_flavors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "frozen_latte_flavors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -71,9 +87,22 @@ ActiveRecord::Schema.define(version: 20141112031157) do
     t.integer  "option_id"
     t.integer  "size_id"
     t.integer  "flavor_id"
+    t.integer  "category_id"
   end
 
   create_table "sizes", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "smoothie_flavors", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "syrup_flavors", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

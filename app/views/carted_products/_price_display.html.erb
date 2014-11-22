@@ -11,7 +11,7 @@
           <% @sub_total = 0 %>
           <% @carted_products.each do |carted_product| %>
           <tr>
-            <td><%= carted_product.product.name %><br><%= carted_product.flavor_name %></td><br>
+            <td><%= carted_product.product.name %><br><%= carted_product.flavor_name %></td>
             <td><%= carted_product.quantity %></td>
             <td>$<%= carted_product.product.price * carted_product.quantity %></td>
             <% @sub_total +=  carted_product.product.price * carted_product.quantity %>
