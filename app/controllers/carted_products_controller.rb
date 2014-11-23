@@ -27,53 +27,59 @@ def create
     @carted_products = @order.carted_products
 
     @carted_product = CartedProduct.find_by(id: params[:id])
-    if @carted_product.product.category_id == 1
-    @available_flavors = SyrupFlavor.all
+    id = @carted_product.product.category_id
+    if id == 1
+      @available_flavors = SyrupFlavor.all
+    elsif id == 2
+      @available_flavors = SmoothieFlavor.all
+    elsif id == 3
+      @available_flavors = FrozenLatteFlavor.all
+    elsif id == 4
+      @available_flavors = FrostbiteFlavor.all
+    elsif id == 5
+      @available_flavors = IcFlavor.all
     elsif
-    @carted_product.product.category_id == 2
-    @available_flavors = SmoothieFlavor.all
-    elsif
-    @carted_product.product.category_id == 3
-    @available_flavors = FrozenLatteFlavor.all
-    elsif
-    @carted_product.product.category_id == 4
-    @available_flavors = FrostbiteFlavor.all
-    elsif
-    @carted_product.product.category_id == 5
-    @available_flavors = IcFlavor.all
-    elsif
-    @carted_product.product.category_id == 7
-    @available_flavors = SyrupFlavor.all
-     
+      id == 7
+      @available_flavors = SyrupFlavor.all
+    else
+      #@available_flavors = []
+      redirect_to carted_products_path
     end
 
+    
     # @available_frostbite_flavors = FrostbiteFlavor.all
     # @available_shake_flavors = SyrupFlavor.all
   end
 
   def update
+
     @carted_product = CartedProduct.find_by(id: params[:id])
-    if @carted_product.product.category_id == 1
-    @carted_product.update(:syrup_flavor_id => params[:syrup_flavor_id])
-    elsif @carted_product.product.category_id == 2
-    @carted_product.update(:smotthie_flavor_id => params[:smoothie_flavor_id])
-    elsif @carted_product.product.category_id == 3
-    @carted_product.update(:frozen_latte_flavor_id => params[:frozen_latte_flavor_id])
-    elsif @carted_product.product.category_id == 4
-    @carted_product.update(:frostbite_flavor_id => params[:frostbite_flavor_id])
-    elsif @carted_product.product.category_id == 5
-    @carted_product.update(:ic_flavor_id => params[:ic_flavor_id])
+    id = @carted_product.product.category_id
+    puts "ID:"
+    puts id.class
+    if id == 1
+      @carted_product.update(:syrup_flavor_id => params[:flavor_id])
+    elsif id == 2
+      @carted_product.update(:smoothie_flavor_id => params[:flavor_id])
+    elsif id == 3
+      @carted_product.update(:frozen_latte_flavor_id => params[:flavor_id])
+    elsif id == 4
+      @carted_product.update(:frostbite_flavor_id => params[:flavor_id])
+    elsif id == 5
+      @carted_product.update(:ic_flavor_id => params[:flavor_id])
+    elsif id == 7
+      @carted_product.update(:syrup_flavor_id => params[:flavor_id])
+    end
     
     # @carted_product.update(:flavor_id => params[:flavor_id])
     redirect_to carted_products_path
-    end
   end
 
 
   private
 
   def carted_product_params
-    @product = params.require(:carted_product).permit(:quantity, :product_id, :container_id, :ic_flavor_id, :option_id, :size_id, :flavor_id,)  
+    @product = params.require(:carted_product).permit(:quantity, :product_id, :container_id, :ic_flavor_id, :option_id, :size_id, :flavor_id, :syrup_flavor_id, :frostbite_flavor_id, :frozen_latte_flavor_id, :smoothie_flavor_id)  
   end
 
 

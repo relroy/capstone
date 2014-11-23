@@ -28,6 +28,11 @@ class CartedProduct < ActiveRecord::Base
       return ""
     end
   end 
+
+
+
+
+
   # def ic_flavor_name
   #   if ic_flavor
   #    return "(#{ic_flavor.name})"
