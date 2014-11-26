@@ -1,0 +1,2 @@
+class FrozenLattesController < ApplicationController
+end

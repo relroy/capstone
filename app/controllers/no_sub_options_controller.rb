@@ -1,0 +1,2 @@
+class NoSubOptionsController < ApplicationController
+end

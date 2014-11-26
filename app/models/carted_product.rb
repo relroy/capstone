@@ -28,45 +28,4 @@ class CartedProduct < ActiveRecord::Base
       return ""
     end
   end 
-
-
-
-
-
-  # def ic_flavor_name
-  #   if ic_flavor
-  #    return "(#{ic_flavor.name})"
-  #   else
-  #   return ""
-  #   end
-  # end 
-  # def smoothie_flavor_name
-  #   if smoothie_flavor
-  #     return "(#{smoothie_flavor.name})"
-  #   else
-  #     return ""
-  #   end
-  # end 
-  # def syrup_flavor_name
-  #   if syrup_flavor
-  #     return "(#{syrup_flavor.name})"
-  #   else
-  #     return ""
-  #   end
-  # end 
-  # def frostbite_flavor_name
-  #   if frostbite_flavor
-  #     return "(#{frostbite_flavor.name})"
-  #   else
-  #     return ""
-  #   end
-  # end 
-  # def flavor_options
-  #   carted_products.each do |carted_product|
-  #     if carted_product.product.category_id = 1
-  #       return "(#{syrup_flavor.name})"
-  #     end
-
-  #   end  
-  # end  
 end

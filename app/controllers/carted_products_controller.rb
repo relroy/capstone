@@ -55,10 +55,11 @@ def create
 
     @carted_product = CartedProduct.find_by(id: params[:id])
     id = @carted_product.product.category_id
-    puts "ID:"
-    puts id.class
+    # puts "ID:"
+    # puts id.class
     if id == 1
       @carted_product.update(:syrup_flavor_id => params[:flavor_id])
+      redirect_to carted_products_path
     elsif id == 2
       @carted_product.update(:smoothie_flavor_id => params[:flavor_id])
     elsif id == 3
@@ -67,12 +68,13 @@ def create
       @carted_product.update(:frostbite_flavor_id => params[:flavor_id])
     elsif id == 5
       @carted_product.update(:ic_flavor_id => params[:flavor_id])
+       redirect_to containers_path
     elsif id == 7
       @carted_product.update(:syrup_flavor_id => params[:flavor_id])
     end
     
     # @carted_product.update(:flavor_id => params[:flavor_id])
-    redirect_to carted_products_path
+    
   end
 
 

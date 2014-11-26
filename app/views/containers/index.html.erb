@@ -1,0 +1,19 @@
+<h1>Which container would you like it in?</h1>
+
+
+    <table>
+      <thead>
+        <tr>
+        <th>Container</th>
+        <th>Price</th>
+        </tr> 
+      </thead>
+<% @containers.each do |container| %>
+      <tbody> 
+        <tr>
+        <td><%= container.name %></td>
+        <td><%= container.price %></td>
+        </tr>
+      </tbody> 
+<% end %>
+    </table>

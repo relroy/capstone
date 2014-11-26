@@ -1,0 +1,2 @@
+module NoSubOptionsHelper
+end

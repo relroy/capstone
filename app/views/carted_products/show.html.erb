@@ -8,13 +8,10 @@
   </div>
   <%= render 'price_display' %>
   <div class = 'tempproducts'> 
-    <% @available_flavors.each do |flavor| %>
-      
+    <% @available_flavors.each do |flavor| %>      
         <%= form_tag carted_product_path(@carted_product.id), :method => :patch do %>
         <%= hidden_field_tag :flavor_id, flavor.id %>
-        <%= submit_tag flavor.name %>
-        
-        
+        <%= submit_tag flavor.name %>      
       <% end %>
     <% end %>
   </div>
