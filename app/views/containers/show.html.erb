@@ -8,19 +8,11 @@
   </div>
   <%= render 'price_display' %>
   <div class = 'tempproducts'> 
-
     <% @containers.each do |container| %>      
-        <%= container.name %>   
-    
-        <% container.carted_products.each do |c| %>
-
-        <%= c %>
-        <% end %>
-
-
-
-       
-      
+        <%= form_tag carted_product_path(@carted_product.id), :method => :patch do %>
+        <%= hidden_field_tag :container_id, container.id %>
+        <%= submit_tag container.name %>      
+      <% end %>
     <% end %>
   </div>
 </div>

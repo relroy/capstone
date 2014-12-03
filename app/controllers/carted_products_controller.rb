@@ -42,7 +42,7 @@ def create
       id == 7
       @available_flavors = SyrupFlavor.all
     else
-      #@available_flavors = []
+      
       redirect_to carted_products_path
     end
 
@@ -62,15 +62,19 @@ def create
       redirect_to carted_products_path
     elsif id == 2
       @carted_product.update(:smoothie_flavor_id => params[:flavor_id])
+      redirect_to carted_products_path
     elsif id == 3
       @carted_product.update(:frozen_latte_flavor_id => params[:flavor_id])
+      redirect_to carted_products_path
     elsif id == 4
       @carted_product.update(:frostbite_flavor_id => params[:flavor_id])
+      redirect_to carted_products_path
     elsif id == 5
       @carted_product.update(:ic_flavor_id => params[:flavor_id])
        redirect_to containers_path
     elsif id == 7
       @carted_product.update(:syrup_flavor_id => params[:flavor_id])
+      redirect_to containers_path
     end
     
     # @carted_product.update(:flavor_id => params[:flavor_id])

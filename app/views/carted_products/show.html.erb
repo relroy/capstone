@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   <div class = "row">
     <div class="col-md-9">
       <div class = 'templogo'>
@@ -8,11 +8,13 @@
   </div>
   <%= render 'price_display' %>
   <div class = 'tempproducts'> 
-    <% @available_flavors.each do |flavor| %>      
-        <%= form_tag carted_product_path(@carted_product.id), :method => :patch do %>
-        <%= hidden_field_tag :flavor_id, flavor.id %>
-        <%= submit_tag flavor.name %>      
-      <% end %>
-    <% end %>
+    <div class="container-fluid">
+      <h3>Please make a selection:</h3>
+        <% @available_flavors.each do |flavor| %>
+            <%= form_tag carted_product_path(@carted_product.id), :method => :patch do %><br>
+            <%= hidden_field_tag :flavor_id, flavor.id %>
+            <%= submit_tag flavor.name %>     
+          <% end %>
+        <% end %>   
   </div>
 </div>

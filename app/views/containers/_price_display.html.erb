@@ -5,21 +5,18 @@
         <table class= "table">
           <tr>
             <th>Product</th>
-            <th></th>
             <th>Quantity</th>
             <th>Price</th>
           </tr> 
-            <% @sub_total = 0 %>
-            <% @carted_products.each do |carted_product| %>
+          <% @sub_total = 0 %>
+          <% @carted_products.each do |carted_product| %>
           <tr>
-            <td><%= carted_product.product.name %>
-              <br><%= carted_product.flavor_name %></td>
-            <td><%= image_tag carted_product.product.photo, :width => "40", :height => "45" %></td>
+            <td><%= carted_product.product.name %><br><%= carted_product.flavor_name %></td>
             <td><%= carted_product.quantity %></td>
             <td>$<%= carted_product.product.price * carted_product.quantity %></td>
             <% @sub_total +=  carted_product.product.price * carted_product.quantity %>
           </tr>
-            <% end %>
+          <% end %>
             <th>Your Sub Total:</th>
             <td>$<%= @order.sub_total %><br></td>
             <th>Sales Tax</th>
@@ -27,17 +24,6 @@
         </table>
             <%= form_for @order do |f| %>
               <%= f.submit "Complete Purchase" %>
-            <% end %> 
+            <% end %>            
   </div>
-            <div>
-              <div class = "row">
-                <div class="col-md-3">
-                  <div class = 'temptotal'>
-                    <% @carted_products.each do |carted_product| %>
-                      <%= image_tag carted_product.product.photo, :width => "40", :height => "45" %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-            </div>
 </div>
