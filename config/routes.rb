@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :products, only: [:index]
       resources :ice_creams, only: [:index]
+      resources :carted_products, only: [:index, :create]
     end
   end
   resources :products

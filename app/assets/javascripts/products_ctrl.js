@@ -3,8 +3,14 @@
 
   angular.module("app").controller("productsCtrl", function($scope, $http){
     
+    $scope.cartedProducts = [];
+
     $http.get("/api/v1/products.json").then(function (response) {
       $scope.products = response.data;
+    });
+
+    $http.get("/api/v1/carted_products.json").then(function (response) {
+      $scope.cartedProducts = response.data;
     });
 
     $scope.toggleVisible = function(product) {
@@ -37,12 +43,16 @@
       var newProduct = {
         name: product.name,
         quantity: 1,
-        price: product.price
+        price: product.price,
+        product_id: product.id,
+        current_user_id: $scope.currentUserId
       }
-      $scope.cartedProducts.push(newProduct);
+      $http.post('/api/v1/carted_products.json', {carted_product: newProduct}).then(function(response) {
+          $scope.cartedProducts.push(newProduct);
+        }, function (error) {
+          $scope.error = error.statusText;
+        });
     };
-
-    $scope.cartedProducts = [];
 
     $scope.subtotal = function() {
       var subtotal = 0;
