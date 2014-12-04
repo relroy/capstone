@@ -32,6 +32,34 @@
       $scope.products.splice(productIndex, 1);
     };
 
+
+    $scope.addToCart = function(product) {
+      var newProduct = {
+        name: product.name,
+        quantity: 1,
+        price: product.price
+      }
+      $scope.cartedProducts.push(newProduct);
+    };
+
+    $scope.cartedProducts = [];
+
+    $scope.subtotal = function() {
+      var subtotal = 0;
+      for(var i = 0; i < $scope.cartedProducts.length; i++) {
+        subtotal += $scope.cartedProducts[i].price;
+      };
+      return subtotal;
+    };
+
+    $scope.salesTax = function() {
+      return $scope.subtotal() * 0.09;
+    };
+
+    $scope.total = function() {
+      return $scope.subtotal() + $scope.salesTax();
+    }
+
     window.scope = $scope;
   });
 

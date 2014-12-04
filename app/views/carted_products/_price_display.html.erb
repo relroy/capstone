@@ -2,28 +2,27 @@
   <div class="col-md-3">
     <div class = 'temptotal'>
       <h1>Your Order:</h1><br>
-        <table class= "table">
+        <table class="table">
           <tr>
             <th>Product</th>
             <th></th>
             <th>Quantity</th>
             <th>Price</th>
           </tr> 
-            <% @sub_total = 0 %>
-            <% @carted_products.each do |carted_product| %>
-          <tr>
-            <td><%= carted_product.product.name %>
-              <br><%= carted_product.flavor_name %></td>
-            <td><%= image_tag carted_product.product.photo, :width => "40", :height => "45" %></td>
-            <td><%= carted_product.quantity %></td>
-            <td>$<%= carted_product.product.price * carted_product.quantity %></td>
-            <% @sub_total +=  carted_product.product.price * carted_product.quantity %>
-          </tr>
-            <% end %>
+            <tr ng-repeat="cartedProduct in cartedProducts">
+              <td>{{ cartedProduct.name }}</td>
+              <td></td>
+              <td>{{ cartedProduct.quantity }}</td>
+              <td>{{ cartedProduct.price | currency }}</td>
+            </tr>
+          </table>
+        <table class="table">
             <th>Your Sub Total:</th>
-            <td>$<%= @order.sub_total %><br></td>
+            <td>{{ subtotal() | currency }}<br></td>
             <th>Sales Tax</th>
-            <td>$<%= @order.sales_tax %><br></td>
+            <td>{{ salesTax() | currency }}<br></td>
+            <th>Total</th>
+            <td>{{ total() | currency }}<br></td>
         </table>
             <%= form_for @order do |f| %>
               <%= f.submit "Complete Purchase" %>
