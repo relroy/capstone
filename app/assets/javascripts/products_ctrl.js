@@ -26,8 +26,8 @@
         });
       $scope.products.push(newProduct);
       $scope.newProductName = "";
-      $scope.newPersonPrice = "";
-      $scope.newPersonPhoto = "";
+      $scope.newProductPrice = "";
+      $scope.newProductPhoto = "";
     };
 
     $scope.numberOfProducts = function() {
@@ -47,12 +47,42 @@
         product_id: product.id,
         current_user_id: $scope.currentUserId
       }
+      
       $http.post('/api/v1/carted_products.json', {carted_product: newProduct}).then(function(response) {
+        console.log($scope.cartedProducts)
           $scope.cartedProducts.push(newProduct);
+          $scope.currentCartedProductId = response.data.id;
+          $scope.currentCartedProduct = newProduct;
+        }, function (error) {
+          $scope.error = error.statusText;
+        });
+
+      $http.get("/api/v1/syrup_flavors.json").then(function (response) {
+        $scope.flavors = response.data;
+      });
+    };
+
+    $scope.updateFlavor = function(flavor) {
+      console.log(flavor);
+      var updatedProduct = { syrup_flavor_id: flavor.id, };
+      $http.patch('/api/v1/carted_products/' + $scope.currentCartedProductId + '.json', {carted_product: updatedProduct}).then(function(response) {
+          $scope.currentCartedProduct.flavor = flavor.name;
         }, function (error) {
           $scope.error = error.statusText;
         });
     };
+
+    $scope.updateCartedProduct = function(cartedProduct) {
+      console.log(cartedProduct);
+      $scope.currentCartedProduct = cartedProduct;
+      // var updatedCartedProduct = { syrup_flavor_id: flavor.id, };
+      // $http.get("/api/v1/syrup_flavors.json").then(function (response) {
+      //   $scope.flavors = response.data;
+      // });
+
+      
+    };
+    
 
     $scope.subtotal = function() {
       var subtotal = 0;

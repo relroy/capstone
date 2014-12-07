@@ -10,11 +10,23 @@
         </div>
       </div>
 
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button> -->
+
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div ng-repeat="flavor in flavors" ng-click="updateFlavor(flavor)" data-dismiss="modal">
+            <div class="flavors"><button type="button" class="btn btn">{{ flavor.name }}</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <%= render 'carted_products/price_display' %>
     <div class='tempproducts'>
       <div ng-repeat="product in products">
         <div class="col-md-3">
-          <div class="thumb" ng-click="addToCart(product)"> 
+          <div class="thumb" ng-click="addToCart(product)" data-toggle="modal" data-target=".bs-example-modal-sm"> 
               <h4><div>{{product.name}}</div></h4>
               <h4>{{product.price}}</h4>
               <img src="assets/{{product.photo}}" height="135" width="100">

@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
+  namespace :api do
+  namespace :v1 do
+    get 'syrup_flavors/index'
+    end
+  end
+
   devise_for :users
   namespace :api do
     namespace :v1 do
       resources :products, only: [:index]
       resources :ice_creams, only: [:index]
-      resources :carted_products, only: [:index, :create]
+      resources :carted_products, only: [:index, :create, :update]
+      resources :syrup_flavors, only: [:index]
     end
   end
   resources :products

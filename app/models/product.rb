@@ -15,13 +15,13 @@ class Product < ActiveRecord::Base
   
 end
 
-def num_to_currency
-    return "$" + price.to_s
+# def num_to_currency
+#     return "$" + price.to_s
 
-end
+# end
   
-def sales_tax
-  @tax = (price * 0.0625).round(2)
-  x = @tax.to_s
-  return "Sales Tax: $" + x
-end
+# def sales_tax
+#   @tax = (price * 0.0625).round(2)
+#   x = @tax.to_s
+#   return "Sales Tax: $" + x
+# end

@@ -8,12 +8,15 @@
             <th></th>
             <th>Quantity</th>
             <th>Price</th>
-          </tr> 
-            <tr ng-repeat="cartedProduct in cartedProducts">
-              <td>{{ cartedProduct.name }}</td>
+          </tr>
+
+            <tr ng-repeat="cartedProduct in cartedProducts" ng-click="updateCartedProduct(cartedProduct)" data-toggle="modal" data-target=".bs-example-modal-sm"> 
+              <div class="display">
+              <td>{{ cartedProduct.name }}<br>({{cartedProduct.flavor}})</td></div>
               <td></td>
               <td>{{ cartedProduct.quantity }}</td>
               <td>{{ cartedProduct.price | currency }}</td>
+              
             </tr>
           </table>
         <table class="table">
