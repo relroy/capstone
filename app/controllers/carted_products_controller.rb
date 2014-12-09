@@ -13,7 +13,7 @@ def create
   end
   def index
 
-    @order = Order.find_by(:user_id => current_user.id, :status => "cart")
+    @order = Order.find_by(:user_id => current_user.id, :status => "cart") || Order.create(:user_id => current_user.id, :status => "cart")
     
     @carted_products = @order.carted_products
     @products = Product.all

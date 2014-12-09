@@ -11,7 +11,21 @@ class Product < ActiveRecord::Base
 
   validates :price, :numericality => true
   
-  
+  def flavor_name
+    if syrup_flavor
+      return "(#{syrup_flavor.name})"
+    elsif smoothie_flavor
+      return "(#{smoothie_flavor.name})"
+    elsif frostbite_flavor
+      return "(#{frostbite_flavor.name})"
+    elsif frozen_latte_flavor
+      return "(#{frozen_latte_flavor.name})"
+    elsif ic_flavor
+     return "(#{ic_flavor.name})"
+    else
+      return ""
+    end
+  end 
   
 end
 

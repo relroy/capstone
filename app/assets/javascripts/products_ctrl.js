@@ -4,50 +4,56 @@
   angular.module("app").controller("productsCtrl", function($scope, $http){
     
     $scope.cartedProducts = [];
-
+    // getting products here
     $http.get("/api/v1/products.json").then(function (response) {
       $scope.products = response.data;
     });
-
+    // getting carted products here
     $http.get("/api/v1/carted_products.json").then(function (response) {
       $scope.cartedProducts = response.data;
     });
+    // getting syrup flavors here
+    $http.get("/api/v1/syrup_flavors.json").then(function (response) {
+        $scope.flavors = response.data;
+      });
 
-    $scope.toggleVisible = function(product) {
-      product.priceVisible = !product.priceVisible;
-    };
+    // $scope.toggleVisible = function(product) {
+    //   product.priceVisible = !product.priceVisible;
+    // };
 
-    $scope.addProduct = function(name, price, photo) {
-      var newProduct = { name: name, price: price, photo: photo, priceVisible: false};
-      $http.post('/api/v1/products.json', {product: newProduct}).then(function(response) {
+    // $scope.addProduct = function(name, price, photo) {
+    //   var newProduct = { name: name, price: price, photo: photo, priceVisible: false};
+    //   $http.post('/api/v1/products.json', {product: newProduct}).then(function(response) {
 
-        }, function (error) {
-          $scope.error = error.statusText;
-        });
-      $scope.products.push(newProduct);
-      $scope.newProductName = "";
-      $scope.newProductPrice = "";
-      $scope.newProductPhoto = "";
-    };
+    //     }, function (error) {
+    //       $scope.error = error.statusText;
+    //     });
+    //   $scope.products.push(newProduct);
+    //   $scope.newProductName = "";
+    //   $scope.newProductPrice = "";
+    //   $scope.newProductPhoto = "";
+    // };
 
-    $scope.numberOfProducts = function() {
-      return $scope.products.length;
-    };
+    // $scope.numberOfProducts = function() {
+    //   return $scope.products.length;
+    // };
 
-    $scope.deleteProduct = function(productIndex) {
-      $scope.products.splice(productIndex, 1);
-    };
+    // $scope.deleteProduct = function(productIndex) {
+    //   $scope.products.splice(productIndex, 1);
+    // };
 
-
+    // defining what the new product is that will be pushed to the carted product json
     $scope.addToCart = function(product) {
       var newProduct = {
         name: product.name,
         quantity: 1,
         price: product.price,
         product_id: product.id,
-        current_user_id: $scope.currentUserId
+        current_user_id: $scope.currentUserId,
+        photo: product.photo
+        // category_id: product.category_id
       }
-      
+      // posting the new carted product defined above to the json
       $http.post('/api/v1/carted_products.json', {carted_product: newProduct}).then(function(response) {
         console.log($scope.cartedProducts)
           $scope.cartedProducts.push(newProduct);
@@ -57,11 +63,8 @@
           $scope.error = error.statusText;
         });
 
-      $http.get("/api/v1/syrup_flavors.json").then(function (response) {
-        $scope.flavors = response.data;
-      });
     };
-
+    // adding the carted product flavor here
     $scope.updateFlavor = function(flavor) {
       console.log(flavor);
       var updatedProduct = { syrup_flavor_id: flavor.id, };

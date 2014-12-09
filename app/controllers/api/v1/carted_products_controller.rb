@@ -18,6 +18,7 @@ class Api::V1::CartedProductsController < ApplicationController
   def update
     @carted_product = CartedProduct.find_by(id: params[:id])
     @carted_product.update(carted_product_params)
+  
   end
 
   private

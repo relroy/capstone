@@ -15,11 +15,22 @@
   animation: fadeOut 1s;
 }
 .ng-repeat{
-  -webkit-animation: fadeOut 3s;
-  -moz-animation: fadeOut 3s;
-  -o-animation: fadeOut 3s;
-  animation: fadeOut 3s;
+  -webkit-animation: fadeOut 1s;
+  -moz-animation: fadeOut 1s;
+  -o-animation: fadeOut 1s;
+  animation: fadeOut 1s;
 }
-.display{
+#flavorDisplay:hover{
     cursor: pointer;
+    -webkit-animation: flash 1s;
+  -moz-animation: flash 1s;
+  -o-animation: flash 1s;
+  animation: flash 1s;
+}
+#productDisplay:hover{
+    cursor: pointer;
+    -webkit-animation: flip 1s;
+  -moz-animation: flip 1s;
+  -o-animation: flip 1s;
+  animation: flip 1s;
 }

@@ -1,5 +1,4 @@
 class Container < ActiveRecord::Base
-  belongs_to :product
   has_many :carted_products
 
 

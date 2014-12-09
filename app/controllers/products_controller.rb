@@ -7,9 +7,9 @@ before_action :authenticate_admin!, :only => [:edit, :destroy]
     product_id = params[:id] 
     @carted_product = CartedProduct.new  
     # @carted_products = CartedProduct.all
-    @order = Order.find_by(:user_id => current_user.id, :status => "cart") || current_user.orders.new
-    
+    @order = Order.find_by(:user_id => current_user.id, :status => "cart") || current_user.orders.create(:status => "cart") 
     @carted_products = @order.carted_products
+    
   end
 
 

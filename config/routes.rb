@@ -12,6 +12,12 @@ Rails.application.routes.draw do
       resources :ice_creams, only: [:index]
       resources :carted_products, only: [:index, :create, :update]
       resources :syrup_flavors, only: [:index]
+      resources :frostbite_flavors, only: [:index]
+      resources :frozen_latte_flavors, only: [:index]
+      resources :ic_flavors, only: [:index]
+      resources :containers, only: [:index]
+      resources :smoothie_flavors, only: [:index]
+      resources :options, only: [:index]
     end
   end
   resources :products
@@ -22,6 +28,11 @@ Rails.application.routes.draw do
   resources :ic_flavors
   resources :options
   resources :sizes
+  resources :frostbite_flavors
+  resources :frozen_latte_flavors
+  resources :containers
+  resources :smoothie_flavors
+
 
   
 
