@@ -15,5 +15,5 @@
 //= require bootstrap-sprockets
 //= require angular
 //= require angular-animate
-//=require app
+//= require app
 //= require_tree .

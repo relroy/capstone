@@ -1,0 +1,17 @@
+<div class = 'container'>
+  <div class = "row">
+    <div class="col-md-9">
+      <div class = 'tempproducts'> 
+        <a href = "http://www.oberweis.com"><img src='http://www.oberweis.com/web/enews/treat-delivery-banner.gif' style='width:300px;height:60px;'></a>
+        <h1>Welcome to the online Oberweis Ice cream ordering system!</h1>
+        <h1><u>Instructions:</u></h1>
+        <h2><u>First you will need to create a user name and password so we know it's you. Look for it in the upper right corner of this screen. Or <a href="/users/sign_in">Sign in</a> if you are a return customer.</u></h2>
+        <h2>Please tap the product that you would like and it will ask you for a flavor or other options. It will automatically add to your cart.</h2>
+        <h3>Your order will show up on the left side of  the page for your review. But don't worry, if you change you mind about a flavor. Just tap the product in the left diplay and you can change it.<br>Once you have completed your order, press "complete order" underneath the order display on the left and enter your form of payment.</h3><br><h4>Once your payment has been approved it will be sent to a delivery system for delivery within 30 minutes.</h4><br><h2>Thank you for using the Oberweis online ordering system!</h2>
+        <% if user_signed_in? %>
+        <a href = "http://localhost:3000/products"><img src='/assets/treat-deliver-logo.gif' style='width:100px;height:60px;'>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

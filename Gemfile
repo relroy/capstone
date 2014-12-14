@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-
+gem 'dotenv-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -29,7 +29,7 @@ gem 'spring',        group: :development
 gem 'quiet_assets'
 gem 'simple_form'
 gem 'devise'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

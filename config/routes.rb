@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
   namespace :v1 do
+    get 'drivers/index'
+    end
+  end
+
+  namespace :api do
+  namespace :v1 do
     get 'syrup_flavors/index'
     end
   end
@@ -18,8 +24,10 @@ Rails.application.routes.draw do
       resources :containers, only: [:index]
       resources :smoothie_flavors, only: [:index]
       resources :options, only: [:index]
+      resources :drivers, only: [:index]
     end
   end
+  
   resources :products
   resources :carted_products
   resources :orders
@@ -31,7 +39,8 @@ Rails.application.routes.draw do
   resources :frostbite_flavors
   resources :frozen_latte_flavors
   resources :containers
-  resources :smoothie_flavors
+  resources :drivers
+  resources :charges
 
 
   

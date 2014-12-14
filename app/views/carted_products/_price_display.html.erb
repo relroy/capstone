@@ -28,17 +28,18 @@
             <th>Total</th>
             <td>{{ total() | currency }}<br></td>
         </table>
+        <!-- <button><%= link_to "Press here to pay.", "/charges/new" %></button> -->
             <%= form_for @order do |f| %>
               <%= f.submit "Complete Purchase" %>
-            <% end %> 
+            <% end %><br> 
   </div>
             <div>
               <div class = "row">
                 <div class="col-md-3">
                   <div class = 'temptotal'> 
-                    <div ng-repeat="cartedProduct in cartedProducts">
-                      <img src="assets/{{cartedProduct.photo}}" height="45" width="40">
-                    </div>
+                      <div ng-repeat="cartedProduct in cartedProducts">
+                        <img src="assets/{{cartedProduct.photo}}" height="45" width="40">
+                      </div>
                   </div>
                 </div>
               </div>

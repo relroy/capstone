@@ -11,28 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141122220603) do
+ActiveRecord::Schema.define(version: 20141210012850) do
 
   create_table "carted_products", force: true do |t|
     t.integer  "order_id"
     t.integer  "product_id"
-    t.integer  "size_id"
-    t.integer  "flavor_id"
-    t.integer  "option_id"
-    t.integer  "container_id"
-    t.integer  "ic_flavor_id"
     t.integer  "quantity"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "ic_flavor_id"
     t.integer  "syrup_flavor_id"
     t.integer  "frostbite_flavor_id"
     t.integer  "frozen_latte_flavor_id"
     t.integer  "smoothie_flavor_id"
+    t.integer  "container_id"
+    t.integer  "option_id"
+    t.integer  "size_id"
+    t.integer  "flavor_id"
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "containers", force: true do |t|
     t.string   "name"
     t.decimal  "price",      precision: 5, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drivers", force: true do |t|
+    t.string   "name"
+    t.boolean  "available"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
