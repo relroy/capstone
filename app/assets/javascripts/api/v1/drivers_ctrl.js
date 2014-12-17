@@ -8,11 +8,11 @@
     });
 
     $scope.selectDriver = function(driver){
-      $scope.greeting = "You're driver, " + (driver.name) + " will be on their way! You should expect your Ice cream within 30 minutes!";
-      driver.available = !driver.available
-      $scope.drivers = !$scope.drivers 
+      $scope.greeting = "Your driver, " + (driver.name) + " will be on their way! You should expect your Ice cream within 30 minutes!";
+      driver.available = !driver.available;
+      $scope.drivers = null;
     };
-    $scope.droneFly = function(drone){
+    // $scope.droneFly = function(drone){
 //       var Cylon = require('cylon');
 
 // Cylon.robot({

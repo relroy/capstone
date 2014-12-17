@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Capstone</title>
+  <title>Charges</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name,message| %>
-<div class='alert alert-<%= name %> alert-dismissible' role='alert'>
-  <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-  <%= message %>
-</div>
-<% end %>
-
+  
 </div>
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
@@ -41,7 +35,7 @@
           </ul> -->
         </li>
       </ul>     
-          <a href="http://www.oberweis.com"><img src='/assets/franchise_store_logo_w-cows.jpg' style='width:600px;height:108px;'><img src='http://droneflyers.com/wp-content/uploads/2011/12/ar_drone_2.jpg' style='width:300px;height:108px;'></a>
+          <a href="/"><img src='/assets/franchise_store_logo_w-cows.jpg' style='width:600px;height:108px;'><img src='http://droneflyers.com/wp-content/uploads/2011/12/ar_drone_2.jpg' style='width:300px;height:108px;'></a>
       <!-- <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">

@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 body{
-  background-image: url("red stripes2.jpg");
+  background-image: url("red_stripes_3.png");
 }
 
 .tempproducts{
@@ -54,10 +54,41 @@ body{
 }
 #vanilla{
     background: white;
-}#pineapple{
+}
+#pineapple{
     background: yellow;
-}#peanut_butter{
+}
+#peanut-butter{
     background: #977254;
     color: white;
+}
+#Heath{
+    background: #977254;
+    color: white;
+}
+#Oreo{
+    background: #34292D;
+    color: white;   
+}
+#Snicker{
+    background: #1E214C;
+    color: white;
+}
+#Cookie-Dough{
+    background: #fbe5b6;
+    color: black;
+}
+#Reeses-PB-Cups{
+    background: #f14a1d;
+    color: white;
+}
+#M+M{
+    background: #008B44;
+    color: white;
+}
+.form-inputs{
+
+    float: left;
+    width: 250px;
 }
 

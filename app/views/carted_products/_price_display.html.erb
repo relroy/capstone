@@ -1,47 +1,62 @@
-<div class = "row">
-  <div class="col-md-3">
-    <div class = 'temptotal'>
-      <h1>Your Order:</h1><br>
-        <table class="table">
-          <tr>
-            <th>Product</th>
-            <th></th>
-            <th>Quantity</th>
-            <th>Price</th>
-          </tr>
-
-            <tr ng-repeat="cartedProduct in cartedProducts" ng-click="updateCartedProduct(cartedProduct)" data-toggle="modal" data-target=".bs-example-modal-sm"> 
-              <div id="display" >
-                <td>{{ cartedProduct.name }}<br>({{ cartedProduct.flavor }})</td>
-              </div>
-              <td></td>
-              <td>{{ cartedProduct.quantity }}</td>
-              <td>{{ cartedProduct.price | currency }}</td>
-              
+  <div class = "row">
+    <div class="col-md-3">
+      <div class = 'temptotal'>
+        <h1>Your Order:</h1><br>
+          <table class="table">
+            <tr>
+              <th>Product</th>
+              <th></th>
+              <th>Quantity</th>
+              <th>Price</th>
             </tr>
+
+              <tr ng-repeat="cartedProduct in cartedProducts" ng-click="updateCartedProduct(cartedProduct)" data-toggle="modal" data-target=".bs-example-modal-sm"> 
+                <div id="display" >
+                  <td>{{ cartedProduct.name }}<br>({{ cartedProduct.flavor }})</td>
+                </div>
+                <td></td>
+                <td>{{ cartedProduct.quantity }}</td>
+                <td>{{ cartedProduct.price | currency }}</td>
+                
+              </tr>
+            </table>
+          <table class="table" >
+              <th>Your Sub Total:</th>
+              <td>{{ subtotal() | currency }}<br></td>
+              <th>Sales Tax</th>
+              <td>{{ salesTax() | currency }}<br></td>
+              <th>Total</th>
+              <td>{{ total() | currency }}<br></td>
           </table>
-        <table class="table" >
-            <th>Your Sub Total:</th>
-            <td>{{ subtotal() | currency }}<br></td>
-            <th>Sales Tax</th>
-            <td>{{ salesTax() | currency }}<br></td>
-            <th>Total</th>
-            <td>{{ total() | currency }}<br></td>
-        </table>
-        <!-- <button><%= link_to "Press here to pay.", "/charges/new" %></button> -->
-            <%= form_for @order do |f| %>
-              <%= f.submit "Complete Purchase" %>
-            <% end %><br> 
-  </div>
-            <div>
-              <div class = "row">
-                <div class="col-md-3">
-                  <div class = 'temptotal'> 
-                      <div ng-repeat="cartedProduct in cartedProducts">
-                        <img src="assets/{{cartedProduct.photo}}" height="45" width="40">
+            <!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div ng-repeat="option in options" ng-click="updateOption(option)" data-dismiss="modal">
+                    <div id="flavorDisplay" >
+                      <div class="flavors">
+                        <div id="{{option.name}}">{{ option.name | uppercase }}
+                        </div>
                       </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-</div>
+            </div> -->
+              <div ng-show="cartedProducts.length > 0">
+                <%= form_for @order do |f| %>
+                  <%= f.submit "Pick your driver" %>
+                <% end %><br>
+              </div> 
+    </div>
+              <div>
+                <div class = "row">
+                  <div class="col-md-3">
+                    <div class = 'temptotal'> 
+                        <div ng-repeat="cartedProduct in cartedProducts">
+                          <img src="assets/{{cartedProduct.photo}}" height="45" width="40">
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  </div>

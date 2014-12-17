@@ -12,6 +12,17 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  devise_scope :user do
+    authenticated :user do
+     root 'products#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+     root 'devise/registrations#new', as: :unauthenticated_root
+    end
+  end
+
   namespace :api do
     namespace :v1 do
       resources :products, only: [:index]

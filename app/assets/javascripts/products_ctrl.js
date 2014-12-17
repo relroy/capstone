@@ -13,9 +13,23 @@
       $scope.cartedProducts = response.data;
     });
     // getting syrup flavors here
+
     $http.get("/api/v1/syrup_flavors.json").then(function (response) {
         $scope.flavors = response.data;
       });
+    // this is where I began entering in more flavors
+    // $http.get("/api/v1/frostbite_flavors.json").then(function (response) {
+    //     $scope.flavors = response.data;
+    //   });
+    // $http.get("/api/v1/frozen_latte_flavors.json").then(function (response) {
+    //     $scope.flavors = response.data;
+    //   });
+    // $http.get("/api/v1/smoothie_flavors.json").then(function (response) {
+    //     $scope.flavors = response.data;
+    //   });
+    // $http.get("/api/v1/ic_flavors.json").then(function (response) {
+    //     $scope.flavors = response.data;
+    //   });
 
     // $scope.toggleVisible = function(product) {
     //   product.priceVisible = !product.priceVisible;
@@ -74,6 +88,16 @@
           $scope.error = error.statusText;
         });
     };
+
+    // $scope.updateOption = function(option) {
+    //   console.log(option);
+    //   var updatedOption = { option_id: option.id, };
+    //   $http.patch('/api/v1/carted_products/' + $scope.currentCartedProductId + '.json', {carted_product: updatedOption}).then(function(response) {
+    //       $scope.currentCartedProduct.option = option.name;
+    //     }, function (error) {
+    //       $scope.error = error.statusText;
+    //     });
+    // };
 
     $scope.updateCartedProduct = function(cartedProduct) {
       console.log(cartedProduct);

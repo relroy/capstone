@@ -6,12 +6,15 @@
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :password, required: false %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-  </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+  </div>
+    <div class ='treatlogoDevise'>
+      <a><a href = "/"><img src='http://www.oberweis.com/web/enews/treat-delivery-banner.gif' style='width:950px;height:185px;'></a>
+    </div>
+
 </div>

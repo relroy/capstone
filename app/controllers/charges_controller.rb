@@ -6,23 +6,26 @@ class ChargesController < ApplicationController
 def create
 
   # Amount in cents
-  @amount = 500
+
+  @order = Order.find_by(status: "cart", user_id: current_user.id)
 
   customer = Stripe::Customer.create(
-    :email => 'example@stripe.com',
+    :email => current_user.email,
     :card  => params[:stripeToken]
   )
 
   charge = Stripe::Charge.create(
     :customer    => customer.id,
-    :amount      => @amount,
+    :amount      => (@order.total * 100).to_i,
     :description => 'Rails Stripe customer',
     :currency    => 'usd'
   )
 
-rescue Stripe::CardError => e
-  flash[:error] = e.message
-  redirect_to charges_path
-end
+  @order.update(:status => "purchased", :total => @order.total)
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to charges_path
+  end
 
 end
