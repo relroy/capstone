@@ -1,20 +1,20 @@
 <div ng-app="app">
   <div ng-controller="driversCtrl">
-    {{1+1}}
+    <!-- {{1+1}} -->
     <div class='container-fluid'>  
       <div class='confirm'>  
         <h1>Thank you for your purchase.</h1>
-          <h2>If you'd like your delivery to be sent via DRONE, please click the image of the drone <strong>below</strong> and we will send out your order right away. Or choose one of our drivers to the left.</h2>
+          <h2>Your delivery will be sent via DRONE, please click the drone <strong>name</strong> to the left and we will send out your order right away.</h2>
         <h1> You order total is: <%= number_to_currency(@order.total.to_f) %></h1><br>
-        <div class='mydrone' ng-click='droneFly(drone)'><img src='http://droneflyers.com/wp-content/uploads/2011/12/ar_drone_2.jpg' style='width:300px;height:108px;'><br>
+        <div class='mydrone' ng-click='droneFly(drone)'><img src='/assets/ar_drone_2.jpg' style='width:300px;height:108px;'><br>
         <h1></h1>
       </div>
       </div>
         <div id="left-column">
-          <div id="obLogo"><a href = "/"><img src='http://www.oberweis.com/web/enews/treat-delivery-banner.gif'style='width:500px;height:160px;'></a>
+          <div id="obLogo"><a href = "/"><img src='/assets/treat-delivery-banner.gif'style='width:500px;height:160px;'></a>
           </div>
           <div class='choose'>
-          <h4>Please choose an available driver to deliver your Ice cream.</h4>
+          <h4>Please choose an available drone to deliver your Ice cream.</h4>
           </div>
             
           <table ng-table="tableParams" class="table ng-table-responsive">            
@@ -26,7 +26,7 @@
             </tr>
           </table>
           <%= form_tag charges_path do %>
-            <div ng-hide="drivers" id="pay-button"><script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-image="/assets/images/3Cows.bmp"  data-description="Oberweis payment systems" data-amount="<%= (@order.total * 100).to_i %>" data-email="<%= current_user.email %>"></script>
+            <div ng-hide="drivers" id="pay-button"><script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-image="/assets/3Cows.bmp" style="width: 100px height: 100px" data-description="Oberweis payment systems" data-amount="<%= (@order.total * 100).to_i %>" data-email="<%= current_user.email %>"></script>
             </div>
           <% end %>
         </div>     

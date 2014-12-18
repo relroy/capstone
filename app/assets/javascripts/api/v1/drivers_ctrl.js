@@ -8,7 +8,7 @@
     });
 
     $scope.selectDriver = function(driver){
-      $scope.greeting = "Your driver, " + (driver.name) + " will be on their way! You should expect your Ice cream within 30 minutes!";
+      $scope.greeting = "Your drone, " + (driver.name) + " will be on their way! You should expect your Ice cream within 30 minutes!";
       driver.available = !driver.available;
       $scope.drivers = null;
     };
