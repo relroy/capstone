@@ -33,7 +33,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
 end
-
+gem 'simplecov', :require => false, :group => :test
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
