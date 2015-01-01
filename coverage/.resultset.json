@@ -30,6 +30,20 @@
         1,
         null,
         null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/robertelroy/ruby_projects/capstone/spec/rails_helper.rb": [
@@ -934,23 +948,23 @@
         null,
         null,
         1,
-        1,
-        1,
         2,
+        2,
+        4,
         null,
         null,
-        1,
-        null,
-        1,
-        1,
-        1,
         2,
         null,
         1,
-        1,
+        2,
+        2,
+        4,
+        null,
+        2,
+        2,
         null,
         1,
-        0,
+        1,
         null,
         null
       ],
@@ -1031,6 +1045,6 @@
         null
       ]
     },
-    "timestamp": 1420137449
+    "timestamp": 1420137911
   }
 }

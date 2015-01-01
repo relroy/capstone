@@ -27,3 +27,17 @@ describe Order do
     end
   end
 end
+
+describe Order do
+  describe 'total' do
+    it 'should give the $ total of all items in the order including sales tax' do
+      product = Product.create!(:price => 3.0, :name => "cone")
+      product_2 = Product.create!(:price => 5.0, :name => "shake")
+      order = Order.create!(:user_id => 2, :status => 'cart')
+      carted_product_1 = CartedProduct.create!(:product_id => product.id, :quantity => 3, :order_id => order.id)
+      carted_product_2 = CartedProduct.create!(:product_id => product_2.id, :quantity => 2, :order_id => order.id)
+
+      expect(order.total).to eq(20.19)
+    end
+  end
+end
