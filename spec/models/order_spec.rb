@@ -13,3 +13,17 @@ describe Order do
     end
   end
 end
+
+describe Order do
+  describe 'sales_tax' do 
+    it 'should tell you the sales tax of all carted products times the quantity' do
+      product = Product.create!(:price => 5.0, :name => 'shake')
+      product_2 = Product.create!(:price => 3.0, :name => "cone")
+      order = Order.create!(:user_id => 2, :status => 'cart')
+      carted_product = CartedProduct.create!(:product_id => product.id, :quantity => 3, :order_id => order.id)
+      carted_product_2 = CartedProduct.create!(:product_id => product_2.id, :quantity => 2, :order_id => order.id)
+
+      expect(order.sales_tax).to eq(1.31)
+    end
+  end
+end
